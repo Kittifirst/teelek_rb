@@ -1,0 +1,6 @@
+Invoking command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/kittibot/teelek_rb/teelek_ws/src/teelek -DCMAKE_INSTALL_PREFIX=/home/kittibot/teelek_rb/teelek_ws/install/teelek
+Invoked command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/kittibot/teelek_rb/teelek_ws/src/teelek -DCMAKE_INSTALL_PREFIX=/home/kittibot/teelek_rb/teelek_ws/install/teelek
+Invoking command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/kittibot/teelek_rb/teelek_ws/build/teelek -- -j4 -l4
+Invoked command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/kittibot/teelek_rb/teelek_ws/build/teelek -- -j4 -l4
+Invoking command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/kittibot/teelek_rb/teelek_ws/build/teelek
+Invoked command in '/home/kittibot/teelek_rb/teelek_ws/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/kittibot/teelek_rb/teelek_ws/build/teelek
