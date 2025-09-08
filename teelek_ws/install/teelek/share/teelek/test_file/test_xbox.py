@@ -295,9 +295,6 @@ class Joystick(Node):
         self.pub_macro.publish(cmd_vel_macro)
         self.pub_move.publish(cmd_vel_move)
         self.pub_shoot.publish(cmd_vel_shoot)
-        self.joy.publish(Joy)
-
-
 
 def main():
     rclpy.init()
