@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kittibot/teelek_rb/teelek_ws/src/teelek
+CMAKE_SOURCE_DIR = /home/kittifirst/teelek_rb/teelek_ws/src/teelek
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kittibot/teelek_rb/teelek_ws/build/teelek
+CMAKE_BINARY_DIR = /home/kittifirst/teelek_rb/teelek_ws/build/teelek
 
 # Utility rule file for teelek_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/teelek_uninstall.dir/compiler_depend.make
 include CMakeFiles/teelek_uninstall.dir/progress.make
 
 CMakeFiles/teelek_uninstall:
-	/usr/bin/cmake -P /home/kittibot/teelek_rb/teelek_ws/build/teelek/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/kittifirst/teelek_rb/teelek_ws/build/teelek/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 teelek_uninstall: CMakeFiles/teelek_uninstall
 teelek_uninstall: CMakeFiles/teelek_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/teelek_uninstall.dir/clean:
 .PHONY : CMakeFiles/teelek_uninstall.dir/clean
 
 CMakeFiles/teelek_uninstall.dir/depend:
-	cd /home/kittibot/teelek_rb/teelek_ws/build/teelek && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kittibot/teelek_rb/teelek_ws/src/teelek /home/kittibot/teelek_rb/teelek_ws/src/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek/CMakeFiles/teelek_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kittifirst/teelek_rb/teelek_ws/build/teelek && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kittifirst/teelek_rb/teelek_ws/src/teelek /home/kittifirst/teelek_rb/teelek_ws/src/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek/CMakeFiles/teelek_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/teelek_uninstall.dir/depend
 

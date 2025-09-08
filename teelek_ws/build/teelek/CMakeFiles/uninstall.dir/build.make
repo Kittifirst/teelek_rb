@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kittibot/teelek_rb/teelek_ws/src/teelek
+CMAKE_SOURCE_DIR = /home/kittifirst/teelek_rb/teelek_ws/src/teelek
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kittibot/teelek_rb/teelek_ws/build/teelek
+CMAKE_BINARY_DIR = /home/kittifirst/teelek_rb/teelek_ws/build/teelek
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/kittibot/teelek_rb/teelek_ws/build/teelek && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kittibot/teelek_rb/teelek_ws/src/teelek /home/kittibot/teelek_rb/teelek_ws/src/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek /home/kittibot/teelek_rb/teelek_ws/build/teelek/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/kittifirst/teelek_rb/teelek_ws/build/teelek && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kittifirst/teelek_rb/teelek_ws/src/teelek /home/kittifirst/teelek_rb/teelek_ws/src/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek /home/kittifirst/teelek_rb/teelek_ws/build/teelek/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

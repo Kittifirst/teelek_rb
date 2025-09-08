@@ -21,13 +21,13 @@ def generate_launch_description():
         executable="joy_node",
         name="Joy_Node",
         output="screen",
-        namespace="",
+        # namespace="",
         # parameters=[{"autorepeat_rate": 50.0}],
         # arguments=["--dev", "/dev/input/js0"],  # replace with your joystick device path
         # remappings = [
         #     ('/joy', '/teelek/joy')
         # ]
-    )
+    )   
 
     joystick_control = Node(
         package="teelek",

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kittibot/teelek_rb/teelek_ws/src/teelek
+CMAKE_SOURCE_DIR = /home/kittifirst/teelek_rb/teelek_ws/src/teelek
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kittibot/teelek_rb/teelek_ws/build/teelek
+CMAKE_BINARY_DIR = /home/kittifirst/teelek_rb/teelek_ws/build/teelek
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kittibot/teelek_rb/teelek_ws/build/teelek/CMakeFiles /home/kittibot/teelek_rb/teelek_ws/build/teelek//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kittifirst/teelek_rb/teelek_ws/build/teelek/CMakeFiles /home/kittifirst/teelek_rb/teelek_ws/build/teelek//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kittibot/teelek_rb/teelek_ws/build/teelek/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kittifirst/teelek_rb/teelek_ws/build/teelek/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

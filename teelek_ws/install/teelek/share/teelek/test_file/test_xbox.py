@@ -165,7 +165,7 @@ class Joystick(Node):
         super().__init__("joystick")
 
         self.pub_move = self.create_publisher(
-            Twist, "/shaq/cmd_move", qos_profile=qos.qos_profile_system_default
+            Twist, "/teelek/cmd_move", qos_profile=qos.qos_profile_system_default
         )
         
         self.pub_macro = self.create_publisher(
@@ -189,7 +189,7 @@ class Joystick(Node):
         )
 
         self.gamepad = Gamepad()
-        self.maxspeed : float = 1.0
+        self.maxspeed : float = 1023.0
 
 
         self.sent_data_timer = self.create_timer(0.01, self.sendData)
@@ -249,9 +249,9 @@ class Joystick(Node):
         cmd_encoder = Twist()
 
 
-        cmd_vel_move.linear.x = float(self.gamepad.lx * self.maxspeed)
-        cmd_vel_move.linear.y = float(self.gamepad.ly * self.maxspeed)
-        cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed)
+        cmd_vel_move.linear.x = float(self.gamepad.ly * self.maxspeed)
+        cmd_vel_move.linear.y = float(self.gamepad.lx * self.maxspeed * -1) # การที่คูณเข้า -1 เนื่องจากมีทิศทางที่ทำให้ค่าติดลบในการควบคุม
+        cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * -1) # เนื่องจากค่าโมเมนตัมจะติดลบเมื่อเลี้ยวล้อจะขับออกและล้อจะหยุดนิ่ง 1 ฝั่ง
         
         cmd_vel_shoot.linear.x = float(self.gamepad.r2 * self.maxspeed)
         cmd_vel_shoot.linear.y = float(self.gamepad.r2 * self.maxspeed)

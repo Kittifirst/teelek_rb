@@ -34,7 +34,7 @@ find_package(ament_index_cpp REQUIRED)
 # Install
 ################################################################################
 install(
-  DIRECTORY launch src test_file config
+  DIRECTORY launch test_file config
   DESTINATION share/${PROJECT_NAME}
 )
 
