@@ -237,64 +237,64 @@ class Joystick(Node):
             self.gamepad.reset_toggles()
 
 
+        
+        
 
     def sendData(self):
+        
         cmd_vel_move = Twist()
-        cmd_vel_load = Twist()
+        cmd_vel_shoot = Twist()
+        cmd_vel_macro = Twist()
+        cmd_servo = Twist()
+        cmd_encoder = Twist()
 
-        # cmd_vel_shoot = Twist()
-        # cmd_vel_macro = Twist()
-        # cmd_servo = Twist()
-        # cmd_encoder = Twist()
 
         cmd_vel_move.linear.x = float(self.gamepad.ly * self.maxspeed)
         cmd_vel_move.linear.y = float(self.gamepad.lx * self.maxspeed * -1) # การที่คูณเข้า -1 เนื่องจากมีทิศทางที่ทำให้ค่าติดลบในการควบคุม
         cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * -1) # เนื่องจากค่าโมเมนตัมจะติดลบเมื่อเลี้ยวล้อจะขับออกและล้อจะหยุดนิ่ง 1 ฝั่ง
         
-        cmd_vel_move = float(self.gamepad.button_square)
-        # cmd_vel_shoot.linear.x = float(self.gamepad.r2 * self.maxspeed)
-        # cmd_vel_shoot.linear.y = float(self.gamepad.r2 * self.maxspeed)
-        # cmd_vel_shoot.linear.z = float(self.gamepad.l2 * self.maxspeed)
-        # cmd_vel_shoot.angular.x = float(self.gamepad.dpadUpDown * self.maxspeed)
+        cmd_vel_shoot.linear.x = float(self.gamepad.r2 * self.maxspeed)
+        cmd_vel_shoot.linear.y = float(self.gamepad.r2 * self.maxspeed)
+        cmd_vel_shoot.linear.z = float(self.gamepad.l2 * self.maxspeed)
+        cmd_vel_shoot.angular.x = float(self.gamepad.dpadUpDown * self.maxspeed)
         
-        # if self.gamepad.button_share:
-        #     cmd_servo.linear.x = float(1.0)  #Closed Servo
+        if self.gamepad.button_share:
+            cmd_servo.linear.x = float(1.0)  #Closed Servo
         
-        # if self.gamepad.button_option:
-        #     cmd_servo.linear.x = float(2.0)  #Opened Servo
+        if self.gamepad.button_option:
+            cmd_servo.linear.x = float(2.0)  #Opened Servo
 
 
             
 
-        # if self.gamepad.last_macro_button == 'dribble' and self.gamepad.dribble:
-        #     cmd_vel_macro.linear.x = 1.0
+        if self.gamepad.last_macro_button == 'dribble' and self.gamepad.dribble:
+            cmd_vel_macro.linear.x = 1.0
 
-        # elif self.gamepad.last_macro_button == 'auto_aim' and self.gamepad.auto_aim_bool:
-        #     cmd_vel_macro.linear.y = 1.0
+        elif self.gamepad.last_macro_button == 'auto_aim' and self.gamepad.auto_aim_bool:
+            cmd_vel_macro.linear.y = 1.0
 
-        # elif self.gamepad.last_macro_button == 'shoot' and self.gamepad.toggle_shoot_bool:
-        #     cmd_vel_macro.linear.z = 1.0
+        elif self.gamepad.last_macro_button == 'shoot' and self.gamepad.toggle_shoot_bool:
+            cmd_vel_macro.linear.z = 1.0
 
-        # elif self.gamepad.last_macro_button == 'pass' and self.gamepad.toggle_pass_bool:
-        #     cmd_vel_macro.angular.x = 1.0
+        elif self.gamepad.last_macro_button == 'pass' and self.gamepad.toggle_pass_bool:
+            cmd_vel_macro.angular.x = 1.0
 
-        # elif self.gamepad.last_macro_button == 'pass_motor' and self.gamepad.toggle_pass_motor_bool:
-        #     cmd_vel_macro.angular.y = 1.0
+        elif self.gamepad.last_macro_button == 'pass_motor' and self.gamepad.toggle_pass_motor_bool:
+            cmd_vel_macro.angular.y = 1.0
 
-        # elif self.gamepad.last_macro_button == 'shoot2' and self.gamepad.toggle_shoot_2_bool:
-        #     cmd_vel_macro.angular.z = 1.0
+        elif self.gamepad.last_macro_button == 'shoot2' and self.gamepad.toggle_shoot_2_bool:
+            cmd_vel_macro.angular.z = 1.0
 
-        # if self.gamepad.toggle_encoder_bool:
-        #     cmd_encoder.linear.x = 2.0 #RPM
-        # else:
-        #     cmd_encoder.linear.x = 1.0 #Bit
+        if self.gamepad.toggle_encoder_bool:
+            cmd_encoder.linear.x = 2.0 #RPM
+        else:
+            cmd_encoder.linear.x = 1.0 #Bit
         
-        # self.pub_encoder.publish(cmd_encoder)
-        # self.pub_servo.publish(cmd_servo)
-        # self.pub_macro.publish(cmd_vel_macro)
+        self.pub_encoder.publish(cmd_encoder)
+        self.pub_servo.publish(cmd_servo)
+        self.pub_macro.publish(cmd_vel_macro)
         self.pub_move.publish(cmd_vel_move)
-        self.pub_move.publish(cmd_vel_load)
-        # self.pub_shoot.publish(cmd_vel_shoot)
+        self.pub_shoot.publish(cmd_vel_shoot)
 
 def main():
     rclpy.init()

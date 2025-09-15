@@ -1,0 +1,9 @@
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/uninstall.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/teelek_uninstall.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/test.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/edit_cache.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/rebuild_cache.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/list_install_components.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/install.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/install/local.dir
+/home/kittifirst/teelek_rb/build/teelek/CMakeFiles/install/strip.dir
