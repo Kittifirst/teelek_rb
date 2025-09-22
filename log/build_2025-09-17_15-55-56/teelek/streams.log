@@ -1,0 +1,31 @@
+[0.009s] Invoking command in '/home/kittifirst/teelek_rb/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kittifirst/teelek_rb/build/teelek -- -j16 -l16
+[0.045s] Invoked command in '/home/kittifirst/teelek_rb/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kittifirst/teelek_rb/build/teelek -- -j16 -l16
+[0.053s] Invoking command in '/home/kittifirst/teelek_rb/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kittifirst/teelek_rb/build/teelek
+[0.061s] -- Install configuration: ""
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/launch
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/launch/show_camera.py
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/launch/microros.launch.py
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/launch/control_launch.py
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/launch/teleop_launch.py
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/test_file
+[0.061s] -- Installing: /home/kittifirst/teelek_rb/install/teelek/share/teelek/test_file/test_xbox.py
+[0.061s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/test_file/cameracapture.py
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/config
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/config/joy_params.yaml
+[0.062s] -- Installing: /home/kittifirst/teelek_rb/install/teelek/lib/teelek/test_xbox.py
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/ament_index/resource_index/package_run_dependencies/teelek
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/ament_index/resource_index/parent_prefix_path/teelek
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/environment/ament_prefix_path.sh
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/environment/ament_prefix_path.dsv
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/environment/path.sh
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/environment/path.dsv
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/local_setup.bash
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/local_setup.sh
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/local_setup.zsh
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/local_setup.dsv
+[0.062s] -- Installing: /home/kittifirst/teelek_rb/install/teelek/share/teelek/package.dsv
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/ament_index/resource_index/packages/teelek
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/cmake/teelekConfig.cmake
+[0.062s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/cmake/teelekConfig-version.cmake
+[0.063s] -- Up-to-date: /home/kittifirst/teelek_rb/install/teelek/share/teelek/package.xml
+[0.063s] Invoked command in '/home/kittifirst/teelek_rb/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kittifirst/teelek_rb/build/teelek

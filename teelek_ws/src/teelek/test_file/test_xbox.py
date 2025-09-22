@@ -168,6 +168,10 @@ class Joystick(Node):
             Twist, "/teelek/cmd_move", qos_profile=qos.qos_profile_system_default
         )
         
+        self.pub_load = self.create_publisher(
+            Twist, "/teelek/cmd_load", qos_profile=qos.qos_profile_system_default
+        )
+
         self.pub_macro = self.create_publisher(
             Twist, "/teelek/cmd_macro", qos_profile=qos.qos_profile_system_default
         )
@@ -196,30 +200,28 @@ class Joystick(Node):
 
     def joy(self, msg):
         
-        #Axes:--------------------------------------------------------
-        
-        self.gamepad.lx = float(msg.axes[0] * -1)                   # 0: Left X-Axis
-        self.gamepad.ly = float(msg.axes[1])                        # 1: Left Y-Axis
-        self.gamepad.l2 = float((msg.axes[2] + 1)/ 2)               # 2: L2
-        self.gamepad.rx = float(msg.axes[3] * -1)                   # 3: Right X-Axis
-        self.gamepad.ry = float(msg.axes[4])                        # 4: Right Y-Axis
-        self.gamepad.r2 = float((msg.axes[5] + 1)/ 2)               # 5: R2
-        self.gamepad.dpadLeftRight  = float(msg.axes[6])            # 6: Dpad Left and Right
-        self.gamepad.dpadUpDown     = float(msg.axes[7])            # 7: Dpad Up and Down
-        
-        #Buttons:-------------------------------------------------------
+        # Axes:
+        self.gamepad.lx = float(msg.axes[0] * -1)
+        self.gamepad.ly = float(msg.axes[1])
+        self.gamepad.l2 = float((msg.axes[2] + 1) / 2)
+        self.gamepad.rx = float(msg.axes[3] * -1)
+        self.gamepad.ry = float(msg.axes[4])
+        self.gamepad.r2 = float((msg.axes[5] + 1) / 2)
+        self.gamepad.dpadLeftRight  = float(msg.axes[6])    
+        self.gamepad.dpadUpDown     = float(msg.axes[7])
 
-        self.gamepad.button_cross    = float(msg.buttons[0])        # 0: 
-        self.gamepad.button_circle   = float(msg.buttons[1])        # 1:
-        self.gamepad.button_triangle = float(msg.buttons[2])        # 2:
-        self.gamepad.button_square   = float(msg.buttons[3])        # 3:
-        self.gamepad.l1              = float(msg.buttons[4])        # 4:
-        self.gamepad.r1              = float(msg.buttons[5])        # 5:
-        self.gamepad.button_share    = float(msg.buttons[6])        # 8:
-        self.gamepad.button_option   = float(msg.buttons[7])        # 9:
-        self.gamepad.button_logo     = float(msg.buttons[8])       # 10:
-        self.gamepad.PressedLeftAnalog  = float(msg.buttons[9])    # 11:
-        self.gamepad.PressedRightAnalog = float(msg.buttons[10])    # 12:
+        # Buttons:
+        self.gamepad.button_cross    = float(msg.buttons[0])  # A
+        self.gamepad.button_circle   = float(msg.buttons[1])  # B
+        self.gamepad.button_triangle = float(msg.buttons[2])  # X
+        self.gamepad.button_square   = float(msg.buttons[3])  # Y
+        self.gamepad.l1              = float(msg.buttons[4])  # LB
+        self.gamepad.r1              = float(msg.buttons[5])  # RB
+        self.gamepad.button_share    = float(msg.buttons[6])  # View
+        self.gamepad.button_option   = float(msg.buttons[7])  # Menu
+        self.gamepad.PressedLeftAnalog  = float(msg.buttons[8])  # LS
+        self.gamepad.PressedRightAnalog = float(msg.buttons[9])  # RS
+
         
         
         #Macro-----------------------------------------------------------
@@ -235,66 +237,64 @@ class Joystick(Node):
         
         if self.gamepad.button_logo:
             self.gamepad.reset_toggles()
-
-
-
+        
     def sendData(self):
         cmd_vel_move = Twist()
-        cmd_vel_load = Twist()
+        cmd_load = Twist()
 
-        # cmd_vel_shoot = Twist()
-        # cmd_vel_macro = Twist()
-        # cmd_servo = Twist()
-        # cmd_encoder = Twist()
+        cmd_vel_shoot = Twist()
+        cmd_vel_macro = Twist()
+        cmd_servo = Twist()
+        cmd_encoder = Twist()
 
         cmd_vel_move.linear.x = float(self.gamepad.ly * self.maxspeed)
         cmd_vel_move.linear.y = float(self.gamepad.lx * self.maxspeed * -1) # การที่คูณเข้า -1 เนื่องจากมีทิศทางที่ทำให้ค่าติดลบในการควบคุม
         cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * -1) # เนื่องจากค่าโมเมนตัมจะติดลบเมื่อเลี้ยวล้อจะขับออกและล้อจะหยุดนิ่ง 1 ฝั่ง
-        
-        cmd_vel_move = float(self.gamepad.button_square)
-        # cmd_vel_shoot.linear.x = float(self.gamepad.r2 * self.maxspeed)
-        # cmd_vel_shoot.linear.y = float(self.gamepad.r2 * self.maxspeed)
-        # cmd_vel_shoot.linear.z = float(self.gamepad.l2 * self.maxspeed)
-        # cmd_vel_shoot.angular.x = float(self.gamepad.dpadUpDown * self.maxspeed)
-        
-        # if self.gamepad.button_share:
-        #     cmd_servo.linear.x = float(1.0)  #Closed Servo
-        
-        # if self.gamepad.button_option:
-        #     cmd_servo.linear.x = float(2.0)  #Opened Servo
 
+        cmd_vel_shoot.linear.x = float(self.gamepad.r2 * self.maxspeed)
+        cmd_vel_shoot.linear.y = float(self.gamepad.r2 * self.maxspeed)
+        cmd_vel_shoot.linear.z = float(self.gamepad.l2 * self.maxspeed)
+        cmd_vel_shoot.angular.x = float(self.gamepad.dpadUpDown * self.maxspeed)
 
+        # dpadLeftRight: -1 (left), 0 (neutral), +1 (right)
+        cmd_load.linear.x = float(self.gamepad.dpadLeftRight * self.maxspeed)
+        
+        if self.gamepad.button_share:
+            cmd_servo.linear.x = float(1.0)  #Closed Servo
+        
+        if self.gamepad.button_option:
+            cmd_servo.linear.x = float(2.0)  #Opened Servo
             
+        if self.gamepad.last_macro_button == 'dribble' and self.gamepad.dribble:
+            cmd_vel_macro.linear.x = 1.0
 
-        # if self.gamepad.last_macro_button == 'dribble' and self.gamepad.dribble:
-        #     cmd_vel_macro.linear.x = 1.0
+        elif self.gamepad.last_macro_button == 'auto_aim' and self.gamepad.auto_aim_bool:
+            cmd_vel_macro.linear.y = 1.0
 
-        # elif self.gamepad.last_macro_button == 'auto_aim' and self.gamepad.auto_aim_bool:
-        #     cmd_vel_macro.linear.y = 1.0
+        elif self.gamepad.last_macro_button == 'shoot' and self.gamepad.toggle_shoot_bool:
+            cmd_vel_macro.linear.z = 1.0
 
-        # elif self.gamepad.last_macro_button == 'shoot' and self.gamepad.toggle_shoot_bool:
-        #     cmd_vel_macro.linear.z = 1.0
+        elif self.gamepad.last_macro_button == 'pass' and self.gamepad.toggle_pass_bool:
+            cmd_vel_macro.angular.x = 1.0
 
-        # elif self.gamepad.last_macro_button == 'pass' and self.gamepad.toggle_pass_bool:
-        #     cmd_vel_macro.angular.x = 1.0
+        elif self.gamepad.last_macro_button == 'pass_motor' and self.gamepad.toggle_pass_motor_bool:
+            cmd_vel_macro.angular.y = 1.0
 
-        # elif self.gamepad.last_macro_button == 'pass_motor' and self.gamepad.toggle_pass_motor_bool:
-        #     cmd_vel_macro.angular.y = 1.0
+        elif self.gamepad.last_macro_button == 'shoot2' and self.gamepad.toggle_shoot_2_bool:
+            cmd_vel_macro.angular.z = 1.0
 
-        # elif self.gamepad.last_macro_button == 'shoot2' and self.gamepad.toggle_shoot_2_bool:
-        #     cmd_vel_macro.angular.z = 1.0
-
-        # if self.gamepad.toggle_encoder_bool:
-        #     cmd_encoder.linear.x = 2.0 #RPM
-        # else:
-        #     cmd_encoder.linear.x = 1.0 #Bit
+        if self.gamepad.toggle_encoder_bool:
+            cmd_encoder.linear.x = 2.0 #RPM
+        else:
+            cmd_encoder.linear.x = 1.0 #Bit
         
-        # self.pub_encoder.publish(cmd_encoder)
-        # self.pub_servo.publish(cmd_servo)
-        # self.pub_macro.publish(cmd_vel_macro)
+        self.pub_load.publish(cmd_load)
         self.pub_move.publish(cmd_vel_move)
-        self.pub_move.publish(cmd_vel_load)
-        # self.pub_shoot.publish(cmd_vel_shoot)
+
+        self.pub_encoder.publish(cmd_encoder)
+        self.pub_servo.publish(cmd_servo)
+        self.pub_macro.publish(cmd_vel_macro)
+        self.pub_shoot.publish(cmd_vel_shoot)
 
 def main():
     rclpy.init()
