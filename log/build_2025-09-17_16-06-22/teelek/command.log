@@ -1,4 +1,0 @@
-Invoking command in '/home/kittifirst/teelek_rb/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kittifirst/teelek_rb/build/teelek -- -j16 -l16
-Invoked command in '/home/kittifirst/teelek_rb/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kittifirst/teelek_rb/build/teelek -- -j16 -l16
-Invoking command in '/home/kittifirst/teelek_rb/build/teelek': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kittifirst/teelek_rb/build/teelek
-Invoked command in '/home/kittifirst/teelek_rb/build/teelek' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kittifirst/teelek_rb/build/teelek

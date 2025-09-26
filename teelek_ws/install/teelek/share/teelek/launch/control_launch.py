@@ -31,7 +31,7 @@ def generate_launch_description():
 
     joystick_control = Node(
         package="teelek",
-        executable="test_xbox.py",
+        executable="xbox_control.py",
         name="Joystick_Node",
         # output="screen",
         namespace="",

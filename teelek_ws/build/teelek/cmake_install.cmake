@@ -45,13 +45,16 @@ endif()
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/teelek" TYPE DIRECTORY FILES
     "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/launch"
-    "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/test_file"
+    "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/src"
     "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/config"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/teelek" TYPE PROGRAM FILES "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/test_file/test_xbox.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/teelek" TYPE PROGRAM FILES
+    "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/src/xbox_control.py"
+    "/home/kittifirst/teelek_rb/teelek_ws/src/teelek/src/robot_movement.py"
+    )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

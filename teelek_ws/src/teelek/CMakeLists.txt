@@ -34,7 +34,7 @@ find_package(ament_index_cpp REQUIRED)
 # Install
 ################################################################################
 install(
-  DIRECTORY launch test_file config
+  DIRECTORY launch src config
   DESTINATION share/${PROJECT_NAME}
 )
 
@@ -47,7 +47,8 @@ install(
 # Install Python Programs
 ################################################################################
 install(PROGRAMS
-  test_file/test_xbox.py
+  src/xbox_control.py
+  src/robot_movement.py
 
   DESTINATION lib/${PROJECT_NAME}
 )

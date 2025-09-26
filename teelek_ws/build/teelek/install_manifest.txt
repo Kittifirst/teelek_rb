@@ -1,9 +1,14 @@
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/launch/show_camera.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/launch/rackdistance_launch.py
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/launch/microros.launch.py
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/launch/control_launch.py
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/launch/teleop_launch.py
-/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/test_file/test_xbox.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/src/xbox_control.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/src/cameracapture.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/src/robot_movement.py
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/config/joy_params.yaml
-/home/kittifirst/teelek_rb/teelek_ws/install/teelek/lib/teelek/test_xbox.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/lib/teelek/xbox_control.py
+/home/kittifirst/teelek_rb/teelek_ws/install/teelek/lib/teelek/robot_movement.py
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/ament_index/resource_index/package_run_dependencies/teelek
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/ament_index/resource_index/parent_prefix_path/teelek
 /home/kittifirst/teelek_rb/teelek_ws/install/teelek/share/teelek/environment/ament_prefix_path.sh
