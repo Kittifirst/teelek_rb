@@ -41,7 +41,8 @@ class Joystick(Node):
         self.pub_load = self.create_publisher(Twist, "/teelek/cmd_load", qos_profile=qos.qos_profile_system_default)
         # Publisher: servo
         self.pub_servo = self.create_publisher(Twist, "/teelek/cmd_servo", qos_profile=qos.qos_profile_system_default)
-
+        # Publisher: encoder
+        self.pub_encoder = self.create_publisher(Twist, "/teelek/cmd_resetencoder", qos_profile=qos.qos_profile_system_default)
         # Subscribe joystick
         self.create_subscription(Joy, '/joy', self.joy, qos_profile=qos.qos_profile_sensor_data)
 
@@ -50,7 +51,14 @@ class Joystick(Node):
 
         # Max speed constants
         self.maxspeed = 1023.0
-        self.maxloadspeed = 750.0
+        self.maxloadspeed = 800.0
+
+        # Servo
+        self.servo0 = 0.0
+        self.servorad = 60.0
+
+        # Encoder
+        self.resetencoder = 1.0
 
         # Timer to send data every 0.1s
         self.sent_data_timer = self.create_timer(0.1, self.sendData)
@@ -87,6 +95,7 @@ class Joystick(Node):
         cmd_vel_move = Twist()
         cmd_load = Twist()
         cmd_servo = Twist()
+        cmd_encoder = Twist()
 
         # Wheel movement
         cmd_vel_move.linear.x = float(self.gamepad.ly * self.maxspeed)
@@ -96,10 +105,18 @@ class Joystick(Node):
         # Load motor control using Dpad Left/Right
         cmd_load.linear.x = float(self.gamepad.dpadLeftRight * self.maxloadspeed)
 
+        # Servo
+        cmd_servo.angular.x = float(self.gamepad.button_a * self.servo0)
+        cmd_servo.angular.x = float(self.gamepad.button_y * self.servorad)
+
+        # Encoder Reset
+        cmd_encoder.linear.x = float(self.gamepad.button_menu * self.resetencoder)
+
         # Publish
         self.pub_move.publish(cmd_vel_move)
         self.pub_load.publish(cmd_load)
         self.pub_servo.publish(cmd_servo)
+        self.pub_encoder.publish(cmd_encoder)
 
 def main():
     rclpy.init()
