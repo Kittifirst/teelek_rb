@@ -37,8 +37,10 @@ class Joystick(Node):
 
         # Publisher: wheel move
         self.pub_move = self.create_publisher(Twist, "/teelek/cmd_move", qos_profile=qos.qos_profile_system_default)
-        # Publisher: load motor
-        self.pub_load = self.create_publisher(Twist, "/teelek/cmd_load", qos_profile=qos.qos_profile_system_default)
+        # Publisher: load motor_l
+        self.pub_loadleft = self.create_publisher(Twist, "/teelek/cmd_loadleft", qos_profile=qos.qos_profile_system_default)
+        # Publisher: load motor_r
+        self.pub_loadright = self.create_publisher(Twist, "/teelek/cmd_loadright", qos_profile=qos.qos_profile_system_default)
         # Publisher: servo
         self.pub_servo = self.create_publisher(Twist, "/teelek/cmd_servo", qos_profile=qos.qos_profile_system_default)
         # Publisher: encoder
@@ -52,10 +54,6 @@ class Joystick(Node):
         # Max speed constants
         self.maxspeed = 1023.0
         self.maxloadspeed = 800.0
-
-        # Servo
-        self.servo0 = 0.0
-        self.servorad = 60.0
 
         # Encoder
         self.resetencoder = 1.0
@@ -93,7 +91,8 @@ class Joystick(Node):
 
     def sendData(self):
         cmd_vel_move = Twist()
-        cmd_load = Twist()
+        cmd_loadleft = Twist()
+        cmd_loadright = Twist()
         cmd_servo = Twist()
         cmd_encoder = Twist()
 
@@ -103,18 +102,22 @@ class Joystick(Node):
         cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * -1)
 
         # Load motor control using Dpad Left/Right
-        cmd_load.linear.x = float(self.gamepad.dpadLeftRight * self.maxloadspeed)
+        cmd_loadleft.linear.x = float(self.gamepad.lb * self.maxloadspeed)
+        cmd_loadright.linear.x = float(self.gamepad.rb  * self.maxloadspeed)
 
         # Servo
-        cmd_servo.angular.x = float(self.gamepad.button_a * self.servo0)
-        cmd_servo.angular.x = float(self.gamepad.button_y * self.servorad)
+        if self.gamepad.button_a:
+            cmd_servo.angular.x = 900.0
+        elif self.gamepad.button_y:
+            cmd_servo.angular.x = 1400.0
 
         # Encoder Reset
         cmd_encoder.linear.x = float(self.gamepad.button_menu * self.resetencoder)
 
         # Publish
         self.pub_move.publish(cmd_vel_move)
-        self.pub_load.publish(cmd_load)
+        self.pub_loadleft.publish(cmd_loadleft)
+        self.pub_loadright.publish(cmd_loadright)
         self.pub_servo.publish(cmd_servo)
         self.pub_encoder.publish(cmd_encoder)
 
