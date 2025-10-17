@@ -53,7 +53,7 @@ class Joystick(Node):
 
         # Max speed constants
         self.maxspeed = 1023.0
-        self.maxloadspeed = 800.0
+        self.maxloadspeed = 650.0
 
         # Encoder
         self.resetencoder = 1.0
@@ -102,18 +102,25 @@ class Joystick(Node):
         cmd_vel_move.angular.z = float(self.gamepad.rx * self.maxspeed * -1)
 
         # Load motor control using Dpad Left/Right
-        cmd_loadleft.linear.x = float(self.gamepad.lb * self.maxloadspeed)
-        cmd_loadright.linear.x = float(self.gamepad.rb  * self.maxloadspeed)
+        # cmd_loadleft.linear.x = float(self.gamepad.lb * self.maxloadspeed * -1) 
+        cmd_loadleft.linear.x = float(self.gamepad.dpadLeftRight * self.maxloadspeed * 1) 
+        # cmd_loadleft.linear.x = float(self.gamepad.l2  * -self.maxloadspeed)
+        # cmd_loadright.linear.x = float(self.gamepad.rb  * self.maxloadspeed * -1)
+        cmd_loadright.linear.x = float(self.gamepad.dpadUpDown  * self.maxloadspeed * 1)
+        # cmd_loadright.linear.x = float(self.gamepad.r2  * self.maxloadspeed)
 
-        # Servo
+        # servo
+        if not hasattr(self, 'servo_last_value'):
+            self.servo_last_value = 800.0 
+
         if self.gamepad.button_a:
-            cmd_servo.angular.x = 900.0
+            self.servo_last_value = 800.0
         elif self.gamepad.button_y:
-            cmd_servo.angular.x = 1400.0
-
-        # Encoder Reset
+            self.servo_last_value = 1400.0
+        cmd_servo.angular.x = self.servo_last_value
+        # Encoder Setpoint
         cmd_encoder.linear.x = float(self.gamepad.button_menu * self.resetencoder)
-
+        
         # Publish
         self.pub_move.publish(cmd_vel_move)
         self.pub_loadleft.publish(cmd_loadleft)
